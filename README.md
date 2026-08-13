@@ -29,6 +29,8 @@ The database was provided as part of the Eniac × Magist business case.
 - All other Tech categories generate less than 50% of the revenue of the 8th-largest Non-Tech category.
 - Tech products performed worse than other product categories in recent months.
 
+![Tech vs Non-Tech Revenue](Images/tech_vs_nontech_revenue.png)
+
 ### Premium Tech
 
 - The market for expensive tech products is relatively small.
