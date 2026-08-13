@@ -1,2 +1,2 @@
-# Eniac_Business-Partner-Analysis-with-Magist
+# Eniac-Business_Partner_Analysis_with_Magist
 Business Partner Analysis for Eniac to see whether or not Magist would be a good buisness partner for Eniac's market expansion in Brazil
