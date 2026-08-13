@@ -1,6 +1,6 @@
-#Eniac-Business Partner Analysis with Magist
+# Eniac-Business Partner Analysis with Magist
 
-##Project Overview
+## Project Overview
 
 Eniac, a European e-commerce company specialising in tech products, is considering expanding into the Brazilian market.
 
@@ -15,7 +15,7 @@ This project analyses Magists database to assess the market potential and operat
 
 ---
 
-##Business Questions
+## Business Questions
 
 The analysis focuses on:
 
@@ -23,14 +23,13 @@ The analysis focuses on:
 - Are expensive tech products popular?
 - How does tech revenue compare with non-tech categories?
 - How do tech sellers perform compared with other sellers?
-- How long does an order take to reach the customer?
+- How long does an order take to reach the customer on average?
 - How many orders are delivered on time?
 - How severe are delivery delays?
-- Is Magist suitable as a logistics partner for Eniac?
 
 ---
 
-##Tools
+## Tools
 
 - MySQL Workbench: data exploration and SQL analysis
 - Tableau: data visualisation and dashboards
@@ -38,7 +37,7 @@ The analysis focuses on:
 
 ---
 
-##Dataset
+## Dataset
 
 The analysis uses a snapshot of Magists Brazilian e-commerce database.
 
@@ -58,9 +57,9 @@ The dataset contains 74 product categories and 25 months of order data.
 
 ---
 
-#Key Findings
+# Key Findings
 
-##Tech Market
+## Tech Market
 
 Tech products account for approximately 15% of products sold and 14% of total revenue.
 
@@ -70,11 +69,11 @@ Computer Accessories is the only tech category competing with the top non-tech s
 
 Other tech categories generate less than 50% of the revenue of the 8th-largest non-tech category.
 
-This suggests that Magist's existing customer base may not be an ideal fit for Eniacs entire tech catalogue.
+This suggests that Magists existing customer base may not be an ideal fit for Eniacs entire tech catalogue.
 
 ---
 
-##Premium Tech
+## Premium Tech
 
 The analysis shows that expensive products are sold less frequently, including within the Tech category.
 
@@ -84,7 +83,7 @@ Therefore, the current market data creates a potential market-fit risk for Eniac
 
 ---
 
-##Recent Tech Performance
+## Recent Tech Performance
 
 Tech products also performed worse than other product categories in recent months.
 
@@ -92,7 +91,7 @@ This makes the current market situation less favourable for a company whose cata
 
 ---
 
-##Delivery Performance
+## Delivery Performance
 
 Delivery performance is another potential concern.
 
@@ -106,7 +105,7 @@ For Eniac, where fast delivery is an important part of the customer experience, 
 
 ---
 
-#Main Risks for Eniac
+# Main Risks for Eniac
 
 | Risk | Finding |
 |---|---|
@@ -120,23 +119,21 @@ For Eniac, where fast delivery is an important part of the customer experience, 
 
 ---
 
-#Tableau Dashboard
+# Tableau Dashboard
 
 The SQL analysis was used to create Tableau visualisations covering:
 
+- Delayed deliveries of the total
 - Tech vs. Non-Tech revenue
 - Revenue by product category
-- Expensive vs. non-expensive product sales
-- Seller performance
-- Delivery processing times
-- On-time vs. delayed deliveries
-- Recent category performance
+
+The remaining ones were created by my group members
 
 ![Tech vs Non-Tech Revenue](Images/tech_vs_nontech_revenue.png)
 
 ---
 
-#Recommendation
+# Recommendation
 
 ### Reassess the partnership opportunity in 6 months.
 
@@ -146,7 +143,7 @@ The current data highlights two important concerns:
 
 ### 1. Market Fit
 
-Magist does not currently show a large market for expensive tech products, which creates a potential mismatch with Eniac's high-end, tech-focused catalogue.
+Magist does not currently show a large market for expensive tech products, which creates a potential mismatch with Eniacs high-end, tech-focused catalogue.
 
 ### 2. Operational Reliability
 
@@ -166,7 +163,7 @@ After 6 months, Eniac should reassess whether Magist can support its product str
 
 ---
 
-##Project Structure
+## Project Structure
 
 ```text
 ├── README.md
