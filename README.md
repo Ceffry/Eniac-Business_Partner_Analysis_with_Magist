@@ -29,6 +29,8 @@ The database was provided as part of the Eniac × Magist business case.
 - All other Tech categories generate less than 50% of the revenue of the 8th-largest Non-Tech category.
 - Tech products performed worse than other product categories in recent months.
 
+![Total Revenue Tech vs Non-Tech](Images/total_revenue_tech_vs_nontech.png)
+
 ![Tech vs Non-Tech Revenue](Images/tech_vs_nontech_revenue.png)
 
 ### Premium Tech
@@ -43,6 +45,8 @@ The database was provided as part of the Eniac × Magist business case.
 - 8% of deliveries were delayed.
 - While most deliveries arrive on time, delayed orders can experience substantial delays.
 - The carrier stage of the delivery process is a significant source of delays.
+
+![On Time vs Delayed Deliveries](Images/total_deliveries_on_time_vs_delayed.png)
 
 ---
 
