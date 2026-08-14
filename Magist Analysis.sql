@@ -650,3 +650,146 @@ END;
 
 # The biggest delays happen from the product being handed from Magist to the postal office, there is the average delay time almost 3 additional days.
 # Most concerning is the average delay from the postal office to the customer. It's almost 28 days, almost a whole month of average delivery delays.
+
+-- sales vs orders
+
+#total orders 
+SELECT COUNT(order_item_id) 
+FROM order_items;
+
+# Amount of total orders: 112650
+
+#tech orders 
+SELECT 
+    COUNT(*) 
+FROM order_items 
+LEFT JOIN products 
+    ON order_items.product_id = products.product_id 
+LEFT JOIN product_category_name_translation 
+    ON products.product_category_name = product_category_name_translation.product_category_name 
+WHERE product_category_name_english IN (
+    'audio', 
+    'consoles_games', 
+    'electronics',
+    'computers_accessories', 
+    'pc_gamer', 
+    'computers',
+    'tablets_printing_image', 
+    'telephony'
+);
+    
+# Total tech orders: 16935
+    
+    
+#total sellers 
+SELECT COUNT(DISTINCT seller_id) 
+FROM sellers; 
+
+# Total sellers: 3095
+
+
+#tech sellers
+SELECT 
+	COUNT(DISTINCT sellers.seller_id) 
+    FROM sellers 
+
+INNER JOIN order_items 
+	ON sellers.seller_id = order_items.seller_id 
+
+INNER JOIN products 
+	ON order_items.product_id = products.product_id 
+    
+INNER JOIN product_category_name_translation 
+	ON products.product_category_name = product_category_name_translation.product_category_name 
+    
+WHERE product_category_name_english 
+	IN 
+    ( 'audio', 'consoles_games', 'electronics',
+    'computers_accessories', 'pc_gamer', 'computers',
+    'tablets_printing_image', 'telephony');
+
+# Total tech sellers: 477
+
+
+#order growth over time
+SELECT 
+    DATE_FORMAT(order_purchase_timestamp, '%Y-%m') AS order_month,
+    COUNT(DISTINCT order_id) AS total_orders
+FROM 
+    orders
+WHERE 
+    order_status = 'delivered'
+GROUP BY 
+    order_month
+ORDER BY 
+    order_month;
+    
+# Orders grow well over time, drop and stagnate a little after 2017.
+    
+    
+#Tech order growth over time
+SELECT 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m') AS month,
+    COUNT(DISTINCT o.order_id) AS total_tech_orders
+FROM orders o
+JOIN order_items oi ON o.order_id = oi.order_id
+JOIN products p ON oi.product_id = p.product_id
+JOIN product_category_name_translation t ON p.product_category_name = t.product_category_name
+WHERE t.product_category_name_english IN (
+        'telephony',
+        'tablets_printing_image',
+        'computers',
+        'computers_accessories',
+        'audio',
+        'electronics',
+        'consoles_games',
+        'pc_gamer'
+    )
+  AND o.order_status = 'delivered'
+GROUP BY 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m')
+ORDER BY 
+    month ASC;
+# Tech orders grow well over the time, slight stagnation in the past 6 months, after a big drop at the beginning of 2018.
+    
+    
+#tech seller growth over time
+SELECT 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m') AS month,
+    COUNT(DISTINCT oi.seller_id) AS active_tech_sellers
+FROM order_items oi
+JOIN orders o ON oi.order_id = o.order_id
+JOIN products p ON oi.product_id = p.product_id
+JOIN product_category_name_translation t ON p.product_category_name = t.product_category_name
+WHERE t.product_category_name_english IN (
+        'telephony',
+        'tablets_printing_image',
+        'computers',
+        'computers_accessories',
+        'audio',
+        'electronics',
+        'consoles_games',
+        'pc_gamer'
+    )
+  AND o.order_status = 'delivered'
+GROUP BY 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m')
+ORDER BY 
+    month ASC;
+    
+# relatively few tech sellers, growth rate stagnates in early 2018
+
+
+#Total seller growth over time
+SELECT 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m') AS month,
+    COUNT(DISTINCT oi.seller_id) AS total_active_sellers
+FROM order_items oi
+JOIN orders o ON oi.order_id = o.order_id
+WHERE o.order_status = 'delivered'
+GROUP BY 
+    DATE_FORMAT(o.order_purchase_timestamp, '%Y-%m')
+ORDER BY 
+    month ASC;
+    
+# The amount of total sellers has a steady growth, stagnates slightly in the latest few months.
